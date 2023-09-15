@@ -22,12 +22,16 @@ Add `--dryRun` if in doubts.
 ### Add application and remove application
 
 ` nx g @nrwl/nest:app <app-name> --directory=<dir-name - optional>`
+
 ` nx r rm <app-name from project.json>`
 
 ### Add library and remove library
 
 `nx g @nrwl/nest:lib <lib-name> --directory=<dir-name - optional>`
+
 ` nx r rm <lib-name from project.json>`
+
+`npx nx g @nx/js:lib mylib`
 
 ### Move
 

@@ -17,7 +17,9 @@
 		"skipDefaultLibCheck": true,
 		"baseUrl": ".",
 		"paths": {
-			"@nx-useful-implementations/configuration": ["libs/configuration/src/index.ts"]
+			"@nx-useful-implementations/common": ["libs/common/src/index.ts"],
+			"@nx-useful-implementations/configuration": ["libs/configuration/src/index.ts"],
+			"@nx-useful-implementations/mongodb": ["libs/database/mongodb/src/index.ts"]
 		}
 	},
 	"exclude": ["node_modules", "tmp"]

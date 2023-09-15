@@ -1,0 +1,30 @@
+{
+	"name": "mongodb",
+	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "libs/database/mongodb/src",
+	"projectType": "library",
+	"targets": {
+		"lint": {
+			"executor": "@nx/linter:eslint",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["libs/database/mongodb/**/*.ts"]
+			}
+		},
+		"test": {
+			"executor": "@nx/jest:jest",
+			"outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+			"options": {
+				"jestConfig": "libs/database/mongodb/jest.config.ts",
+				"passWithNoTests": true
+			},
+			"configurations": {
+				"ci": {
+					"ci": true,
+					"codeCoverage": true
+				}
+			}
+		}
+	},
+	"tags": []
+}
