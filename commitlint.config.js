@@ -3,7 +3,6 @@ module.exports = {
   rules: {
     "scope-enum": [2, "always", ["system", "useful-implementations"]],
     "scope-empty": [2, "never"],
-    "subject-case": [2, "always"],
     "subject-empty": [2, "never"],
   },
 };
