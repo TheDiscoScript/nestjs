@@ -19,6 +19,7 @@
 		"paths": {
 			"@nx-useful-implementations/common": ["libs/common/src/index.ts"],
 			"@nx-useful-implementations/configuration": ["libs/configuration/src/index.ts"],
+			"@nx-useful-implementations/logger": ["libs/logger/src/index.ts"],
 			"@nx-useful-implementations/mongodb": ["libs/database/mongodb/src/index.ts"]
 		}
 	},

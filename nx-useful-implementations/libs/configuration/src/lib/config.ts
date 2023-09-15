@@ -1,5 +1,8 @@
+// I am currently working on better implementation.
+// For time beeing I will be using this.
+
 export function getBaseConfiguration() {
-	const { SHOW_DEBUG, IS_PRODUCTION, ENABLE_LOCAL_LOGGER, SENTRY_DNS, NODE_ENV, RATE_LIMIT_TTL, RATE_LIMIT_MAX } = process.env;
+	const { SHOW_DEBUG, IS_PRODUCTION, ENABLE_LOCAL_LOGGER, SENTRY_DNS, NODE_ENV } = process.env;
 	return {
 		app: {
 			name: 'base-configuration',
