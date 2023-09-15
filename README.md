@@ -21,4 +21,6 @@ Contributions are more than welcome! If you have an idea, a pattern, or a useful
 
 ## Getting Started
 
-I will be prolly using docker for most of my projects, so you can just run `docker-compose up` or script in package.json to get started.
+Use `npm install` to install husky and commitlint. This will ensure that your commits follow the conventional commit format.
+
+I will be prolly using docker for most of my projects, so you can just run `docker-compose up` or `npm i` and script in package.json to get started.

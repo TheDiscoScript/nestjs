@@ -1,0 +1,13 @@
+{
+	"useWorkspaces": true,
+	"version": "independent",
+	"packages": ["libs/**", "apps/**"],
+	"useNx": true,
+	"command": {
+		"publish": {
+			"allowBranch": "main",
+			"message": "release(%s %v)"
+		}
+	},
+	"$schema": "node_modules/lerna/schemas/lerna-schema.json"
+}
