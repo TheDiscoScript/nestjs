@@ -3,4 +3,4 @@
 
 npx pretty-quick --staged
 npm run check
-npm run test:affected
+npm run test:all
