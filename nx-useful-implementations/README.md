@@ -29,24 +29,34 @@ Add `--dryRun` if in doubts.
 `nx g @nrwl/nest:lib <lib-name> --directory=<dir-name - optional>`
 ` nx r rm <lib-name from project.json>`
 
+### Move
+
+```nx g mv --project <project-name> --destination <destination/<project-name>>
+
 ## Running tasks
 
 To execute tasks with Nx use the following syntax:
 
 ```
+
 nx <target> <project> <...options>
+
 ```
 
 You can also run multiple targets:
 
 ```
+
 nx run-many -t <target1> <target2>
+
 ```
 
 ..or add `-p` to filter specific projects
 
 ```
+
 nx run-many -t <target1> <target2> -p <proj1> <proj2>
+
 ```
 
 Targets can be defined in the `package.json` or `projects.json`. Learn more [in the docs](https://nx.dev/core-features/run-tasks).
@@ -68,3 +78,4 @@ Nx comes with local caching already built-in (check your `nx.json`). On CI you m
 -   [Join the community](https://nx.dev/community)
 -   [Subscribe to the Nx Youtube Channel](https://www.youtube.com/@nxdevtools)
 -   [Follow us on Twitter](https://twitter.com/nxdevtools)
+```

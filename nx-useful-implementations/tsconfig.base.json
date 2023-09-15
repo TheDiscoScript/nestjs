@@ -17,7 +17,7 @@
 		"skipDefaultLibCheck": true,
 		"baseUrl": ".",
 		"paths": {
-			"@nx-useful-implementations/configuration": ["configuration/src/index.ts"]
+			"@nx-useful-implementations/configuration": ["libs/configuration/src/index.ts"]
 		}
 	},
 	"exclude": ["node_modules", "tmp"]
