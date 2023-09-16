@@ -1,0 +1,64 @@
+{
+	"name": "mongodb-base-repository-pattern",
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "apps/mongodb-base-repository-pattern/src",
+	"projectType": "application",
+	"targets": {
+		"build": {
+			"executor": "@nx/webpack:webpack",
+			"outputs": ["{options.outputPath}"],
+			"defaultConfiguration": "production",
+			"options": {
+				"target": "node",
+				"compiler": "tsc",
+				"outputPath": "dist/apps/mongodb-base-repository-pattern",
+				"main": "apps/mongodb-base-repository-pattern/src/main.ts",
+				"tsConfig": "apps/mongodb-base-repository-pattern/tsconfig.app.json",
+				"assets": ["apps/mongodb-base-repository-pattern/src/assets"],
+				"isolatedConfig": true,
+				"webpackConfig": "apps/mongodb-base-repository-pattern/webpack.config.js"
+			},
+			"configurations": {
+				"development": {},
+				"production": {}
+			}
+		},
+		"serve": {
+			"executor": "@nx/js:node",
+			"defaultConfiguration": "development",
+			"options": {
+				"buildTarget": "mongodb-base-repository-pattern:build"
+			},
+			"configurations": {
+				"development": {
+					"buildTarget": "mongodb-base-repository-pattern:build:development"
+				},
+				"production": {
+					"buildTarget": "mongodb-base-repository-pattern:build:production"
+				}
+			}
+		},
+		"lint": {
+			"executor": "@nx/linter:eslint",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["apps/mongodb-base-repository-pattern/**/*.ts"]
+			}
+		},
+		"test": {
+			"executor": "@nx/jest:jest",
+			"outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+			"options": {
+				"jestConfig": "apps/mongodb-base-repository-pattern/jest.config.ts",
+				"passWithNoTests": true
+			},
+			"configurations": {
+				"ci": {
+					"ci": true,
+					"codeCoverage": true
+				}
+			}
+		}
+	},
+	"tags": []
+}
