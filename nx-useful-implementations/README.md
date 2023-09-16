@@ -7,7 +7,11 @@
 
 ## Start the app
 
-Check scripts in package.json for more details. There will be either docker or local setup.
+check scripts in package.json for more details. There will be either docker or local setup.
+
+-   mongodb-base-repitory-pattern:
+    -   `npm run mongodb-base-repository-pattern:build`
+    -   `npm run mongodb-base-repository-pattern:up`
 
 ## Generate code
 
