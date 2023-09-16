@@ -13,6 +13,11 @@ check scripts in package.json for more details. There will be either docker or l
     -   `npm run mongodb-base-repository-pattern:build`
     -   `npm run mongodb-base-repository-pattern:up`
 
+### Goals
+
+-   Implement RabbitMQ
+-   Implement SQS with Localstack
+
 ## Generate code
 
 If you happen to use Nx plugins, you can leverage code generators that might come with it.
