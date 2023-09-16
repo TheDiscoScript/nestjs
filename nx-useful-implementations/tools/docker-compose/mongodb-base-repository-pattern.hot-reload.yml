@@ -1,0 +1,34 @@
+version: '3.8'
+services:
+    mongodb-base-repository-pattern-hr:
+        scale: 1
+        container_name: mongodb-base-repository-pattern-hr
+        build:
+            dockerfile: ./tools/docker-compose/Dockerfile
+            context: ../../
+        command: ts-node-dev -r tsconfig-paths/register --clear --poll --respawn --transpile-only --ignore-watch=node_modules,tools,tmp,dist  --inspect=0.0.0.0:5858 -- /src/apps/mongodb-base-repository-pattern/src/main.ts
+        volumes:
+            - ../../apps/:/src/apps:ro
+            - ../../libs/:/src/libs:ro
+            - ../../tsconfig.base.json:/src/tsconfig.base.json:ro
+        restart: unless-stopped
+        ports:
+            - 5858:5858
+        depends_on:
+            - mongodb
+        environment:
+            - NODE_ENV=production
+            - TS_NODE_PROJECT=/src/apps/mongodb-base-repository-pattern/tsconfig.app.json
+            - ENABLE_LOCAL_LOGGER=true
+            - IS_PRODUCTION=false
+            - SHOW_DEBUG=true
+            - MONGODB_URI=mongodb://host.docker.internal:42069/mongodb-base-repository-pattern
+
+    mongodb:
+        image: mongo:6
+        container_name: mongodb
+        hostname: mongo
+        command: mongod --quiet --logpath /dev/null
+        restart: unless-stopped
+        ports:
+            - 42069:27017

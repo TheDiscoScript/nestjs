@@ -7,7 +7,7 @@
 
 ## Start the app
 
-Check scripts in package.json for more details.
+Check scripts in package.json for more details. There will be either docker or local setup.
 
 ## Generate code
 

@@ -2,9 +2,8 @@ import { Injectable, Scope, ConsoleLogger } from '@nestjs/common';
 import { ConsoleLoggerOptions } from '@nestjs/common/services/console-logger.service';
 import { configureScope, captureException } from '@sentry/node';
 import { Scope as SentryScope } from '@sentry/types';
-//who doesnt love colourful logs
-import chalk from 'chalk';
 import { getBaseConfiguration } from '@nx-useful-implementations/configuration';
+import kleur from 'kleur';
 
 interface SentryExtras {
 	sentryNote?: string;
@@ -16,6 +15,7 @@ interface SentryExtras {
 export class LoggerService extends ConsoleLogger {
 	private config = getBaseConfiguration();
 	private hasSentry = false;
+	//private kleur = kleur;
 
 	constructor(context?: string, options?: ConsoleLoggerOptions) {
 		let newOptions = options as ConsoleLoggerOptions;
@@ -42,7 +42,7 @@ export class LoggerService extends ConsoleLogger {
 		if (!this.isLevelEnabled('log')) {
 			return;
 		}
-		let text = `${chalk.green(String(message))}`;
+		let text = `${kleur.green(String(message))}`;
 		if (method) {
 			text = `\x1B[33m[${method}]\x1B[39m ${text}`;
 		}
@@ -51,7 +51,7 @@ export class LoggerService extends ConsoleLogger {
 
 	//force console.log()
 	lForce(message: any, method?: string) {
-		let text = `${chalk.green(String(message))}`;
+		let text = `${kleur.green(String(message))}`;
 		if (method) {
 			text = `\x1B[33m[${method}]\x1B[39m ${text}`;
 		}
@@ -63,7 +63,7 @@ export class LoggerService extends ConsoleLogger {
 		if (!this.isLevelEnabled('debug')) {
 			return;
 		}
-		let text = `${chalk.blue(String(message))}`;
+		let text = `${kleur.blue(String(message))}`;
 		if (method) {
 			text = `\x1B[33m[${method}]\x1B[39m ${text}`;
 		}
@@ -77,7 +77,7 @@ export class LoggerService extends ConsoleLogger {
 		if (!this.isLevelEnabled('warn')) {
 			return;
 		}
-		let text = `${chalk.yellow(String(message))}`;
+		let text = `${kleur.yellow(String(message))}`;
 		if (method) {
 			text = `\x1B[33m[${method}]\x1B[39m ${text}`;
 		}
@@ -88,7 +88,7 @@ export class LoggerService extends ConsoleLogger {
 		if (!this.isLevelEnabled('verbose')) {
 			return;
 		}
-		let text = `${chalk.magenta(String(message))}`;
+		let text = `${kleur.magenta(String(message))}`;
 		if (method) {
 			text = `\x1B[33m[${method}]\x1B[39m ${text}`;
 		}
@@ -102,12 +102,12 @@ export class LoggerService extends ConsoleLogger {
 		let text;
 
 		if (error instanceof Error) {
-			text = `${chalk.red(String(error.message))}`;
+			text = `${kleur.red(String(error.message))}`;
 			if (this.hasSentry) this.sendErrorToSentry(error, method, sentryExtras);
 			return super.error(text, error?.stack, this.context);
 		}
 
-		text = `${chalk.green(String(error))}`;
+		text = `${kleur.green(String(error))}`;
 		if (method) {
 			text = `\x1B[33m[${method}]\x1B[39m ${text}`;
 		}

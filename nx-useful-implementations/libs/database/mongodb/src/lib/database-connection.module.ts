@@ -1,11 +1,12 @@
-import { Inject, Module, OnApplicationShutdown } from '@nestjs/common';
+import { Global, Inject, Module, OnApplicationShutdown } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { MongoClient } from 'mongodb';
 import { LoggerService } from '@nx-useful-implementations/logger';
-import { MongoDbHealthIndicator } from './health-indicator.service';
+//import { MongoDbHealthIndicator } from './health-indicator.service';
 
 export const MONGODB_CONNECTION = 'mongo_db_connection';
 export const DB_CONNECTION = 'db_connection';
+@Global()
 @Module({
 	providers: [
 		{
@@ -67,9 +68,8 @@ export const DB_CONNECTION = 'db_connection';
 				}
 			},
 		},
-		MongoDbHealthIndicator,
 	],
-	exports: [DB_CONNECTION, MongoDbHealthIndicator],
+	exports: [DB_CONNECTION],
 })
 export class DatabaseConnectionModule implements OnApplicationShutdown {
 	logger = new LoggerService('DatabaseModule', { timestamp: false });

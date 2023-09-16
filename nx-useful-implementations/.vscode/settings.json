@@ -1,0 +1,8 @@
+{
+	"typescript.preferences.importModuleSpecifier": "shortest",
+	"typescript.preferences.importModuleSpecifierEnding": "index",
+	"typescript.preferences.quoteStyle": "single",
+	"javascript.preferences.quoteStyle": "single",
+	"javascript.preferences.importModuleSpecifier": "shortest",
+	"javascript.preferences.importModuleSpecifierEnding": "index"
+}

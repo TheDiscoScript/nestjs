@@ -22,7 +22,7 @@ export function getBaseConfiguration() {
 	};
 }
 
-export function getSpecifiedConfigExample() {
+function getSpecifiedConfigExample() {
 	const { SPECIFIEDENV } = process.env;
 
 	const baseConfig = getBaseConfiguration();
