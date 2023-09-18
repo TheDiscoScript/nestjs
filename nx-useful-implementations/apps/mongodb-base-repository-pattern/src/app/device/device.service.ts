@@ -32,7 +32,7 @@ export class DeviceService implements OnModuleInit {
 						firstName: 'John',
 						lastName: 'Doe',
 						email: '+ěš',
-					} as DeviceUser),
+					}),
 				}),
 				new DeviceEntity({
 					model: 'model_1',
@@ -42,7 +42,7 @@ export class DeviceService implements OnModuleInit {
 						firstName: 'John',
 						lastName: 'Doe',
 						email: '+ěš@š+ěšě+.com',
-					} as DeviceUser),
+					}),
 				}),
 			];
 			const { error: insertErr, result } = await this.repo.insertMany(Users);
